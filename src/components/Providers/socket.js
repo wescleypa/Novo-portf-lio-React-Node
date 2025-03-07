@@ -8,7 +8,7 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     // Inicializa o Socket.IO
-    const newSocket = io('http://localhost:3001');
+    const newSocket = io('http://192.64.86.189:3001');
 
     // Evento de conexão
     newSocket.on('connect', () => {
