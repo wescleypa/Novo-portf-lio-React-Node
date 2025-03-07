@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+# Portfólio de Wescley Porto de Andrade
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bem-vindo ao meu portfólio! Este projeto é uma representação digital das minhas habilidades, experiências e projetos como desenvolvedor. Aqui, você encontrará informações sobre mim, minhas habilidades técnicas, projetos realizados e muito mais.
 
-## Available Scripts
+## 🚀 Visão Geral
 
-In the project directory, you can run:
+Este portfólio foi desenvolvido com as seguintes tecnologias:
 
-### `npm start`
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **Material-UI (MUI)**: Biblioteca de componentes UI para React, seguindo o design system do Material Design.
+- **Axios**: Cliente HTTP para fazer requisições à API.
+- **Vite**: Ferramenta de build rápida para projetos modernos.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O portfólio é responsivo, funcionando tanto em dispositivos móveis quanto em desktops, e inclui uma seção de chat com uma IA para interação.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✨ Funcionalidades
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Sobre Mim**: Uma breve introdução sobre quem sou e minha trajetória.
+- **Habilidades**: Lista das minhas habilidades técnicas (hard skills) e comportamentais (soft skills).
+- **Experiência**: Detalhes sobre minha experiência profissional.
+- **Projetos**: Destaque dos principais projetos que desenvolvi.
+- **Vídeos**: Links para vídeos relacionados ao meu trabalho.
+- **Chat com IA**: Uma IA integrada para responder perguntas sobre mim e meu trabalho.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Como Executar o Projeto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Siga os passos abaixo para configurar e executar o projeto localmente.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Pré-requisitos
 
-### `npm run eject`
+- **Node.js**: Certifique-se de ter o Node.js instalado. Você pode baixá-lo [aqui](https://nodejs.org/).
+- **Git**: Para clonar o repositório. Instale o Git [aqui](https://git-scm.com/).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Passos para Configuração
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Clone o repositório**:
+   ```bash
+   git clone https://github.com/seu-usuario/seu-portfolio.git
+   cd seu-portfolio
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. **Instale as dependências**:
+   ```bash
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Configure as variáveis de ambiente**:
+   - Crie um arquivo `.env` na raiz do projeto.
+   - Adicione as variáveis necessárias, como chaves de API ou URLs de backend.
 
-## Learn More
+4. **Execute o projeto**:
+   ```bash
+   npm run dev
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. **Acesse o projeto**:
+   Abra o navegador e acesse `http://localhost:3000`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🧩 Estrutura do Projeto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Aqui está uma visão geral da estrutura do projeto:
 
-### Analyzing the Bundle Size
+```
+portfolio/
+├── public/              # Arquivos estáticos (imagens, favicon, etc.)
+├── src/
+│   ├── assets/           # Recursos como imagens e ícones
+│   ├── components/       # Componentes reutilizáveis
+│   ├── pages/            # Páginas do portfólio
+│   ├── App.jsx           # Componente principal
+│   ├── main.jsx          # Ponto de entrada do projeto
+│   └── styles/           # Estilos globais e temas
+├── .env                  # Variáveis de ambiente
+├── .gitignore            # Arquivos ignorados pelo Git
+├── package.json          # Dependências e scripts do projeto
+├── README.md             # Este arquivo
+└── vite.config.js        # Configuração do Vite
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🎨 Personalização
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Você pode personalizar o portfólio de acordo com suas necessidades:
 
-### Advanced Configuration
+1. **Alterar o conteúdo**:
+   - Atualize as informações em `src/data` ou diretamente nos componentes.
+   - Modifique as cores e temas em `src/styles/theme.js`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+2. **Adicionar novas seções**:
+   - Crie novos componentes em `src/components` e adicione-os às páginas.
 
-### Deployment
+3. **Integrar com APIs**:
+   - Use o Axios para integrar com APIs externas ou backend personalizado.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 🤖 Chat com IA
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+O portfólio inclui um chat integrado com uma IA que responde perguntas sobre mim e meu trabalho. A IA é alimentada por uma API que processa as mensagens e retorna respostas contextualizadas.
+
+### Como funciona?
+
+- O chat usa o contexto das últimas 5 mensagens para gerar respostas precisas.
+- O campo de entrada e o botão são desativados enquanto a IA processa a resposta.
+- A interface é responsiva e funciona bem em dispositivos móveis.
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+## 🙌 Contribuições
+
+Contribuições são bem-vindas! Se você encontrar algum problema ou tiver sugestões de melhorias, sinta-se à vontade para abrir uma **issue** ou enviar um **pull request**.
+
+---
+
+## 📧 Contato
+
+Se você quiser entrar em contato comigo, aqui estão minhas informações:
+
+- **Nome**: Wescley Porto de Andrade
+- **Email**: contato@souwescley.com
+- **LinkedIn**: [linkedin.com/in/wescley-andrade](https://linkedin.com/in/wescley-andrade)
+- **GitHub**: [github.com/wescleypa](https://github.com/wescleypa)
+
+---
+
+Obrigado por visitar meu portfólio! Espero que você tenha uma ótima experiência. 🚀
+
+---
