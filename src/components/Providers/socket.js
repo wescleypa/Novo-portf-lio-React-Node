@@ -8,7 +8,9 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     // Inicializa o Socket.IO
-    const newSocket = io('192.64.86.189:3001');
+    const newSocket = io('192.64.86.189:3001',
+      { transports: ["websocket"] }
+    );
 
     // Evento de conexão
     newSocket.on('connect', () => {
