@@ -55,7 +55,7 @@ export default function ChatBox({ isFixed }) {
 
       context.push({ role: 'user', content: inputValue });
 
-      const response = await axios.post('http://localhost:3001/ia', { content: context });
+      const response = await axios.post('http://192.64.86.189:3001/ia', { content: context });
 
       const iaResponse = {
         text: response.data.result,
