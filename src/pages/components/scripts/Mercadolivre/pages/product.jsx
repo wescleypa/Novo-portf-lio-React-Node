@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Container, Typography, Button, Grid2 as Grid, Card, CardContent, Rating, Chip, Dialog, IconButton, Skeleton, Badge } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import { Close as CloseIcon } from '@mui/icons-material';
 import { FormControlLabel, Checkbox } from '@mui/material';
-import { socket } from '../layout';
+import { SocketContext } from '../../../../../components/Providers/socket';
 import { ArrowBack } from '@mui/icons-material';
 
 const ProductPage = ({ product, onAdicionarAoCarrinho, carrinho, setSelectedProduct, setPathname }) => {
+  const socket = useContext(SocketContext);
   const [selectedImage, setSelectedImage] = useState(null);
   const [Reviews, setReviews] = useState([]);
   const [avaliacoesCarregando, setAvaliacoesCarregando] = useState(product?.avaliacoesCarregando ?? true);
@@ -59,14 +60,15 @@ const ProductPage = ({ product, onAdicionarAoCarrinho, carrinho, setSelectedProd
       }
     };
 
-    if (product?.avaliacoesCarregando) {
+    if (product?.avaliacoesCarregando && socket) {
       socket.on('avaliacoes_produto', handleAvaliacoes);
     } else {
       setAvaliacoesCarregando(false);
     }
 
     return () => {
-      socket.off('avaliacoes_produto', handleAvaliacoes);
+      if (socket)
+        socket.off('avaliacoes_produto', handleAvaliacoes);
     };
   }, [product]);
 

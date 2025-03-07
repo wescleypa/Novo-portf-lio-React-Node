@@ -1,11 +1,13 @@
 import React from 'react';
 import Portfolio from './pages/Portfolio';
-//import Facebook from './pages/components/Facebook';
+import { SocketProvider } from './components/Providers/socket';
 
 const App = () => {
 
   return (
-    <Portfolio />
+    <SocketProvider>
+      <Portfolio />
+    </SocketProvider>
   );
 };
 

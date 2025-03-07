@@ -13,12 +13,12 @@ import Divider from '@mui/material/Divider';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { IconButton, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { io } from 'socket.io-client';
 import { useState, useEffect } from 'react';
 import { CircularProgress, Badge } from '@mui/material';
 import ShareIcon from '@mui/icons-material/Share';
 import { Pagination } from '@mui/material';
 import { Code as CodeIcon, ArrowBack } from '@mui/icons-material';
+import { SocketContext } from '../../../../components/Providers/socket';
 
 import {
   Account,
@@ -27,8 +27,8 @@ import {
   SignOutButton,
 } from '@toolpad/core/Account';
 import ProductPage from './pages/product';
+import { useFormContext } from 'react-hook-form';
 
-export const socket = io('http://localhost:3001');
 
 function formatarValor(valor) {
   const value = parseFloat(valor).toFixed(2);
@@ -157,6 +157,7 @@ function DashboardPage({
   searchedInput,
   setProducts,
 }) {
+  const socket = React.useContext(SocketContext);
   const [avaliacoesPorProduto, setAvaliacoesPorProduto] = useState([]);
   const [paginationLoading, setPaginationLoading] = useState(false);
   const [visibleProducts, setVisibleProducts] = useState(6); // Estado para controlar quantos produtos são exibidos
@@ -185,11 +186,13 @@ function DashboardPage({
         }));
       }
     };
-
-    socket.on('avaliacoes_produto', handleAvaliacoes);
+    
+    if (socket)
+      socket.on('avaliacoes_produto', handleAvaliacoes);
 
     return () => {
-      socket.off('avaliacoes_produto', handleAvaliacoes);
+      if (socket)
+        socket.off('avaliacoes_produto', handleAvaliacoes);
     };
   }, [socket]);
 
@@ -628,6 +631,7 @@ SidebarFooterAccount.propTypes = {
 
 function ToolbarActionsSearch({ setProducts, loading, pathname, setPathname, searchedInput, setActiveContent, setSubSelected }) {
   const [searchInput, setSearch] = useState();
+  const socket = React.useContext(SocketContext);
 
   const search = () => {
     if (searchInput) {
@@ -732,6 +736,7 @@ function ToolbarActionsSearch({ setProducts, loading, pathname, setPathname, sea
 
 function Layout({ getDestaque, setActiveContent, setSubSelected }) {
 
+  const socket = React.useContext(SocketContext);
   const [pathname, setPathname] = React.useState('/home');
   const [products, setProducts] = React.useState({ produtos: [], paging: {} }); // Inicializa com estrutura correta
   const [loading, setLoading] = React.useState(false);
