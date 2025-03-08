@@ -31,7 +31,7 @@ const Facebook = ({ setActiveContent, setSubSelected }) => {
     setLoading(true);
     e.preventDefault();
     try {
-      const response = await axios.post('http://server.souwescley.com:3001/search-people', {
+      const response = await axios.post('https://api.souwescley.com:3001/search-people', {
         string: searchTerm,
         maxResults: 12,
       });
@@ -46,7 +46,7 @@ const Facebook = ({ setActiveContent, setSubSelected }) => {
   const selectProfile = async (item) => {
     setLoading(true);
     try {
-      const response = await axios.post('http://server.souwescley.com:3001/getProfile', {
+      const response = await axios.post('https://api.souwescley.com:3001/getProfile', {
         href: item.href,
         name: item.name,
       });
